@@ -86,8 +86,16 @@
             min-height: 48px;
             align-items: center;
             gap: 12px;
+            padding: 0 8px;
+            border-radius: 4px;
             cursor: pointer;
             font: 1rem/1.4 Arial, sans-serif;
+            transition: background-color 180ms ease, transform 180ms ease;
+        }
+
+        label:hover {
+            background-color: #edf4ed;
+            transform: translateX(4px);
         }
 
         input[type="checkbox"] {
@@ -109,8 +117,34 @@
         }
 
         input:checked + .product {
-            color: #879188;
+            color: #2d694b;
             text-decoration: line-through;
+            animation: success-finish 420ms ease both;
+        }
+
+        input[type="checkbox"]:checked {
+            animation: checkbox-success 320ms ease both;
+        }
+
+        @keyframes success-finish {
+            0% { opacity: 0.45; transform: translateY(3px); }
+            65% { opacity: 1; transform: translateY(-2px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes checkbox-success {
+            0% { transform: scale(0.8); }
+            65% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            label,
+            input:checked + .product,
+            input[type="checkbox"]:checked {
+                animation: none;
+                transition: none;
+            }
         }
 
         @media (max-width: 600px) {
