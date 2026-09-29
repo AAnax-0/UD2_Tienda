@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de la compra</title>
+    <style>
+        :root {
+            color-scheme: light;
+            font-family: Georgia, "Times New Roman", serif;
+            color: #20362b;
+            background: #f7f7f1;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px 64px;
+        }
+
+        main {
+            width: min(100%, 920px);
+            margin: 0 auto;
+        }
+
+        header {
+            display: grid;
+            grid-template-columns: 1fr minmax(220px, 38%);
+            align-items: center;
+            gap: 32px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #d9dfd6;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.4rem, 7vw, 4rem);
+            font-weight: 500;
+            line-height: 1.05;
+        }
+
+        .summary {
+            margin: 14px 0 0;
+            color: #607467;
+            font: 1rem/1.5 Arial, sans-serif;
+        }
+
+        header img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 3 / 2;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .shopping-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 30px 48px;
+            padding: 30px 0 0;
+        }
+
+        section h2 {
+            margin: 0 0 12px;
+            color: #2d694b;
+            font: 700 0.82rem/1.3 Arial, sans-serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        li + li {
+            border-top: 1px solid #e3e6df;
+        }
+
+        label {
+            display: flex;
+            min-height: 48px;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font: 1rem/1.4 Arial, sans-serif;
+        }
+
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            flex: 0 0 18px;
+            accent-color: #2d694b;
+            cursor: pointer;
+        }
+
+        .product {
+            flex: 1;
+        }
+
+        .quantity {
+            color: #718075;
+            font-size: 0.88rem;
+            white-space: nowrap;
+        }
+
+        input:checked + .product {
+            color: #879188;
+            text-decoration: line-through;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 24px 18px 40px;
+            }
+
+            header {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            header img {
+                max-height: 210px;
+            }
+
+            .shopping-list {
+                grid-template-columns: 1fr;
+                gap: 26px;
+                padding-top: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <div>
+                <h1>Lista de la compra</h1>
+                <p class="summary">16 productos · 4 categorías</p>
+            </div>
+            <img src="compra.jpg" alt="Cesta de compra">
+        </header>
+
+        <div class="shopping-list">
+            <section aria-labelledby="fruta-title">
+                <h2 id="fruta-title">Fruta y verdura</h2>
+                <ul>
+                    <li><label><input type="checkbox"><span class="product">Manzanas</span><span class="quantity">4 unidades</span></label></li>
+                    <li><label><input type="checkbox"><span class="product">Plátanos</span><span class="quantity">6 unidades</span></label></li>
+                    <li><label><input type="checkbox"><span class="product">Tomates</span><span class="quantity">500 g</span></label></li>
+                    <li><label><input type="checkbox"><span class="product">Lechuga</span><span class="quantity">1 unidad</span></label></li>
+                </ul>
+            </section>
+
+            <section aria-labelledby="despensa-title">
+                <h2 id="despensa-title">Despensa</h2>
+                <ul>
+                    <li><label><input type="checkbox"><span class="product">Arroz</span><span class="quantity">1 kg</span></label></li>
+                    <li><label><input type="checkbox"><span class="product">Pasta</span><span class="quantity">500 g</span></label></li>
+                    <li><label><input type="checkbox"><span class="product">Aceite de oliva</span><span class="quantity">1 l</span></label></li>
+                    <li><label><input type="checkbox"><span class="product">Lentejas</span><span class="quantity">500 g</span></label></li>
+                </ul>
+            </section>
+
+            <section aria-labelledby="lacteos-title">
+                <h2 id="lacteos-title">Lácteos y huevos</h2>
+                <ul>
+                    <li><label><input type="checkbox"><span class="product">Leche</span><span class="quantity">2 l</span></label></li>
+                    <li><label><input type="checkbox"><span class="product">Huevos</span><span class="quantity">12 unidades</span></label></li>
+                    <li><label><input type="checkbox"><span class="product">Queso</span><span class="quantity">250 g</span></label></li>
+                    <li><label><input type="checkbox"><span class="product">Yogures</span><span class="quantity">4 unidades</span></label></li>
+                </ul>
+            </section>
+
+            <section aria-labelledby="proteinas-title">
+                <h2 id="proteinas-title">Carne y pescado</h2>
+                <ul>
+                    <li><label><input type="checkbox"><span class="product">Pechuga de pollo</span><span class="quantity">500 g</span></label></li>
+                    <li><label><input type="checkbox"><span class="product">Merluza</span><span class="quantity">2 filetes</span></label></li>
+                    <li><label><input type="checkbox"><span class="product">Salmón</span><span class="quantity">2 lomos</span></label></li>
+                    <li><label><input type="checkbox"><span class="product">Jamón cocido</span><span class="quantity">200 g</span></label></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
